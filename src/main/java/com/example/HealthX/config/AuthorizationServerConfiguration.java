@@ -53,18 +53,6 @@ public class AuthorizationServerConfiguration {
     }
 
     @Bean
-    @Order(2)
-    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-
-        http.formLogin(Customizer.withDefaults());
-
-        http.authorizeHttpRequests(authorize ->
-                authorize.anyRequest().authenticated());
-
-        return http.build();
-    }
-
-    @Bean
     public UserDetailsManager userDetailsManager() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
 
