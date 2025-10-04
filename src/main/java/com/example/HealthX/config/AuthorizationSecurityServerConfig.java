@@ -28,7 +28,7 @@ public class AuthorizationSecurityServerConfig {
                         exception.authenticationEntryPoint(
                                 new LoginUrlAuthenticationEntryPoint("/login")
                         ));
-        
+
         return http.build();
 
     }
