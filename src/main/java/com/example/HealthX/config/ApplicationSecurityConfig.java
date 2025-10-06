@@ -3,6 +3,7 @@ package com.example.HealthX.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
@@ -17,7 +18,11 @@ public class ApplicationSecurityConfig {
 
         http.formLogin(Customizer.withDefaults())
                 .authorizeHttpRequests(authorize ->
-                        authorize.anyRequest().authenticated());
+                        authorize
+                                .requestMatchers(HttpMethod.GET, "/all").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/add/{user}").permitAll()
+                                .anyRequest().authenticated()
+                );
 
         return http.build();
     }

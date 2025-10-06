@@ -26,13 +26,13 @@ public class UserService {
         if (user_check.isPresent()) {
             throw new RuntimeException("User already exists");
         } else {
-            try{
+            try {
+                user.getAuthorities().forEach(authority -> authority.setUser_id(user));
                 this.userRepository.save(user);
             } catch(Exception e){
                 throw new RuntimeException("Error saving user", e);
             }
         }
-
     }
 
     public List<User> getAllUsers(){
