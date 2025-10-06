@@ -21,6 +21,7 @@ public class AuthorizationSecurityServerConfig {
                 new OAuth2AuthorizationServerConfigurer();
 
         http
+                //pentru ce requesturi se aplica aceasta configuratie de securitate
                 .securityMatcher(authorizationServerConfigurer.getEndpointsMatcher())
                 .with(authorizationServerConfigurer, configurer ->
                         configurer.oidc(Customizer.withDefaults()))

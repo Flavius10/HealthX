@@ -25,7 +25,6 @@ public class AuthorizationServerTests {
     @WithMockUser(username = "Flavius", password = "password")
     void generateTokenWithClientCredentials() throws Exception {
 
-        // POST catre /oauth2/token cu client_credentials grant type
         MvcResult result = mockMvc.perform(post("/oauth2/token")
                         .with(httpBasic("client-id", "secret"))
                         .param("grant_type", "client_credentials")
