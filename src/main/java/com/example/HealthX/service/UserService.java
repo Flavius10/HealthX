@@ -27,7 +27,7 @@ public class UserService {
             throw new RuntimeException("User already exists");
         } else {
             try {
-                user.getAuthorities().forEach(authority -> authority.setUser_id(user));
+                user.getAuthorities().forEach(authority -> authority.setUser(user));
                 this.userRepository.save(user);
             } catch(Exception e){
                 throw new RuntimeException("Error saving user", e);

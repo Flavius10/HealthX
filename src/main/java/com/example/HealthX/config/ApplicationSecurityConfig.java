@@ -6,6 +6,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -16,13 +17,15 @@ public class ApplicationSecurityConfig {
     @Order(2)
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
 
-        http.formLogin(Customizer.withDefaults())
+        http
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize ->
                         authorize
                                 .requestMatchers(HttpMethod.GET, "/all").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/add/{user}").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/add").permitAll()
                                 .anyRequest().authenticated()
-                );
+                )
+                .formLogin(Customizer.withDefaults());
 
         return http.build();
     }

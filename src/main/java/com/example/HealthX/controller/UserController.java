@@ -23,7 +23,7 @@ public class UserController {
         return this.userService.getAllUsers();
     }
 
-    @PostMapping("/add/{user}")
+    @PostMapping("/add")
     public void addUser(@RequestBody User user){
         this.userService.addUser(user);
     }

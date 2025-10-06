@@ -1,5 +1,7 @@
 package com.example.HealthX.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -15,6 +17,7 @@ public class Authority {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
     public Authority(){}
@@ -31,11 +34,11 @@ public class Authority {
         this.name = name;
     }
 
-    public User getUser_id() {
+    public User getUser() {
         return this.user;
     }
-    public void setUser_id(User user_id) {
-        this.user = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
