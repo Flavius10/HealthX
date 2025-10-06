@@ -3,6 +3,7 @@ package com.example.HealthX.service;
 import com.example.HealthX.domain.User;
 import com.example.HealthX.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +14,13 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    private final PasswordEncoder passwordEncoder;
+
     //Autowired the userRepository
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository,
+                       PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void addUser(User user){
@@ -27,6 +32,7 @@ public class UserService {
             throw new RuntimeException("User already exists");
         } else {
             try {
+                user.setPassword(this.passwordEncoder.encode(user.getPassword()));
                 user.getAuthorities().forEach(authority -> authority.setUser(user));
                 this.userRepository.save(user);
             } catch(Exception e){
