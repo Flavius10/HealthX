@@ -15,7 +15,7 @@ public class Client {
     private int id;
 
     @Column(name = "client_id", nullable = false, length = 50)
-    private String client_id;
+    private String clientId;
 
     @Column(name = "secret", nullable = false, length = 50)
     private String secret;
@@ -36,12 +36,12 @@ public class Client {
         return this.id;
     }
 
-    public String getClient_id(){
-        return this.client_id;
+    public String getClientId(){
+        return this.clientId;
     }
 
-    public void setClient_id(String client_id){
-        this.client_id = client_id;
+    public void setClientId(String clientId){
+        this.clientId = clientId;
     }
 
     public String getSecret(){
@@ -79,7 +79,7 @@ public class Client {
     public String toString(){
         return "Client{" +
                 "id=" + id +
-                ", client_id='" + client_id + '\'' +
+                ", client_id='" + clientId + '\'' +
                 ", secret='" + secret + '\'' +
                 ", scope_type='" + scope_type + '\'' +
                 ", redirect_uri='" + redirect_uri + '\'' +
