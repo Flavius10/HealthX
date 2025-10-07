@@ -1,6 +1,9 @@
 DROP TABLE IF EXISTS authority CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
+DROP TABLE IF EXISTS clients CASCADE;
+DROP TABLE IF EXISTS grants CASCADE;
+
 CREATE TABLE IF NOT EXISTS users(
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
@@ -14,4 +17,21 @@ CREATE TABLE IF NOT EXISTS authority(
     user_id INT NOT NULL,
     PRIMARY KEY (id),
     CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS clients(
+    id INT NOT NULL AUTO_INCREMENT,
+    client_id VARCHAR(50) NOT NULL,
+    secret VARCHAR(50) NOT NULL,
+    scope VARCHAR(50) NOT NULL,
+    redirect_uri VARCHAR(50) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS grants(
+    id INT NOT NULL AUTO_INCREMENT,
+    grant_type VARCHAR(50) NOT NULL,
+    client_id VARCHAR(50) NOT NULL,
+    CONSTRAINT fk_client_grants FOREIGN KEY (client_id) REFERENCES clients(client_id),
+    PRIMARY KEY (id)
 );
