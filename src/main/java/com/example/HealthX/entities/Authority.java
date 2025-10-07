@@ -1,7 +1,6 @@
-package com.example.HealthX.domain;
+package com.example.HealthX.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Objects;

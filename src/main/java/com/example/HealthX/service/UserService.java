@@ -1,8 +1,7 @@
 package com.example.HealthX.service;
 
-import com.example.HealthX.domain.User;
+import com.example.HealthX.entities.User;
 import com.example.HealthX.repo.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

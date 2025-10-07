@@ -1,6 +1,6 @@
 package com.example.HealthX.repo;
 
-import com.example.HealthX.domain.User;
+import com.example.HealthX.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

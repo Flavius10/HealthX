@@ -1,11 +1,10 @@
-package com.example.HealthX.domain;
+package com.example.HealthX.entities;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = "users")

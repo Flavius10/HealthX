@@ -1,9 +1,8 @@
 package com.example.HealthX.user_tests;
 
-import com.example.HealthX.domain.Authority;
-import com.example.HealthX.domain.User;
+import com.example.HealthX.entities.Authority;
+import com.example.HealthX.entities.User;
 import com.example.HealthX.service.UserService;
-import jakarta.transaction.TransactionScoped;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS clients(
     id INT NOT NULL AUTO_INCREMENT,
     client_id VARCHAR(50) NOT NULL,
     secret VARCHAR(50) NOT NULL,
-    scope VARCHAR(50) NOT NULL,
+    scope_type VARCHAR(50) NOT NULL,
     redirect_uri VARCHAR(50) NOT NULL,
     PRIMARY KEY (id)
 );

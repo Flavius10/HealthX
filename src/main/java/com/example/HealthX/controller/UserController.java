@@ -1,6 +1,6 @@
 package com.example.HealthX.controller;
 
-import com.example.HealthX.domain.User;
+import com.example.HealthX.entities.User;
 import com.example.HealthX.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
