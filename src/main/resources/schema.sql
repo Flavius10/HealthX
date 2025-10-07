@@ -32,6 +32,6 @@ CREATE TABLE IF NOT EXISTS grants(
     id INT NOT NULL AUTO_INCREMENT,
     grant_type VARCHAR(50) NOT NULL,
     client_id VARCHAR(50) NOT NULL,
-    CONSTRAINT fk_client_grants FOREIGN KEY (client_id) REFERENCES clients(client_id),
+    CONSTRAINT fk_client_grants FOREIGN KEY (client_id) REFERENCES clients(id),
     PRIMARY KEY (id)
 );

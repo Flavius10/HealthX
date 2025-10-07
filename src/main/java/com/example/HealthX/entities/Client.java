@@ -28,7 +28,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client_id", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JsonManagedReference
-    List<Grant> authorities;
+    List<Grant> grants;
 
     public Client(){}
 
@@ -66,6 +66,13 @@ public class Client {
 
     public void setRedirect_uri(String redirect_uri){
         this.redirect_uri = redirect_uri;
+    }
+
+    public List<Grant> getGrants(){
+        return this.grants;
+    }
+    public void setGrants(List<Grant> grants){
+        this.grants = grants;
     }
 
     @Override
