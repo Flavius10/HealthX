@@ -64,7 +64,7 @@ public class Client {
         return this.redirectUri;
     }
 
-    public void setRedirecUri(String redirect_uri){
+    public void setRedirectUri(String redirect_uri){
         this.redirectUri = redirect_uri;
     }
 

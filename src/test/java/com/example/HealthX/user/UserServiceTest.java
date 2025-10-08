@@ -1,4 +1,4 @@
-package com.example.HealthX.user_tests;
+package com.example.HealthX.user;
 
 import com.example.HealthX.entities.Authority;
 import com.example.HealthX.entities.User;

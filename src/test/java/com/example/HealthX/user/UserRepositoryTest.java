@@ -1,4 +1,4 @@
-package com.example.HealthX.user_tests;
+package com.example.HealthX.user;
 
 import com.example.HealthX.entities.Authority;
 import com.example.HealthX.entities.User;
@@ -34,7 +34,7 @@ public class UserRepositoryTest {
 
         userRepository.save(user);
 
-        assert( userRepository.findByUsername("test").isPresent());
+        assert(userRepository.findByUsername("test").isPresent());
     }
 
 }
