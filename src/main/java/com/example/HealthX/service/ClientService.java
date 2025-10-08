@@ -31,6 +31,7 @@ public class ClientService {
         }
         else{
             try{
+                client.getGrants().forEach(grant -> grant.setClient(client));
                 this.clientRepository.save(client);
             } catch (Exception e){
                 throw new RuntimeException("Error saving client", e);

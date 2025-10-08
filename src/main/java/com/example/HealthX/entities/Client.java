@@ -20,13 +20,13 @@ public class Client {
     @Column(name = "secret", nullable = false, length = 50)
     private String secret;
 
-    @Column(name = "scope_type", nullable = false, length = 50)
-    private String scope_type;
+    @Column(name = "scope", nullable = false, length = 50)
+    private String scope;
 
     @Column(name = "redirect_uri", nullable = false, length = 50)
-    private String redirect_uri;
+    private String redirectUri;
 
-    @OneToMany(mappedBy = "client_id", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JsonManagedReference
     List<Grant> grants;
 
@@ -52,20 +52,20 @@ public class Client {
         this.secret = secret;
     }
 
-    public String getScope_type(){
-        return this.scope_type;
+    public String getScope(){
+        return this.scope;
     }
 
-    public void setScope_type(String scope_type){
-        this.scope_type = scope_type;
+    public void setScope(String scope_type){
+        this.scope = scope_type;
     }
 
-    public String getRedirect_uri(){
-        return this.redirect_uri;
+    public String getRedirectUri(){
+        return this.redirectUri;
     }
 
-    public void setRedirect_uri(String redirect_uri){
-        this.redirect_uri = redirect_uri;
+    public void setRedirecUri(String redirect_uri){
+        this.redirectUri = redirect_uri;
     }
 
     public List<Grant> getGrants(){
@@ -81,8 +81,8 @@ public class Client {
                 "id=" + id +
                 ", client_id='" + clientId + '\'' +
                 ", secret='" + secret + '\'' +
-                ", scope_type='" + scope_type + '\'' +
-                ", redirect_uri='" + redirect_uri + '\'' +
+                ", scope_type='" + scope + '\'' +
+                ", redirect_uri='" + redirectUri + '\'' +
                 '}';
     }
 

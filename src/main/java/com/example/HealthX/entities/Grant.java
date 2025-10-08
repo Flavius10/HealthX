@@ -19,7 +19,7 @@
         @ManyToOne
         @JoinColumn(name = "client_id")
         @JsonBackReference
-        private Client client_id;
+        private Client client;
 
         public Grant() {}
 
@@ -35,12 +35,12 @@
             this.grant_type = grant_type;
         }
 
-        public Client getClient_id() {
-            return this.client_id;
+        public Client getClient() {
+            return this.client;
         }
 
-        public void setClient_id(Client client_id) {
-            this.client_id = client_id;
+        public void setClient(Client client) {
+            this.client = client;
         }
 
         @Override
@@ -48,7 +48,7 @@
             return "Grant{" +
                     "id=" + id +
                     ", grant_type='" + grant_type + '\'' +
-                    ", client_id=" + client_id +
+                    ", client_id=" + client +
                     '}';
         }
 

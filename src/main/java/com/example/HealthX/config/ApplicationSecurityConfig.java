@@ -21,8 +21,8 @@ public class ApplicationSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize ->
                         authorize
-                                .requestMatchers(HttpMethod.GET, "/all").permitAll()
-                                .requestMatchers(HttpMethod.POST, "/add").permitAll()
+                                .requestMatchers(HttpMethod.GET, "*/all").permitAll()
+                                .requestMatchers(HttpMethod.POST, "*/add").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(Customizer.withDefaults());
