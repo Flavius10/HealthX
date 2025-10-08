@@ -2,7 +2,6 @@ package com.example.HealthX.implementations;
 
 import com.example.HealthX.entities.Client;
 import com.example.HealthX.repo.ClientRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
@@ -10,14 +9,13 @@ import org.springframework.security.oauth2.server.authorization.client.Registere
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
-public class RegisteresClientRepositoryCustom implements RegisteredClientRepository {
+public class RegisteredClientRepositoryCustom implements RegisteredClientRepository {
 
     public ClientRepository clientRepository;
 
-    public RegisteresClientRepositoryCustom(ClientRepository clientRepository) {
+    public RegisteredClientRepositoryCustom(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }
 
